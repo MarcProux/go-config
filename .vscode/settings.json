@@ -1,0 +1,30 @@
+{
+  // =============== LICENSE ======================================================================
+  "powerHeader.autoInsert.enable": true,
+  "powerHeader.autoInsert.allow": "none",
+  "powerHeader.autoInsert.languages": [
+    "go", "plaintext"
+  ],
+  "powerHeader.commentMode": "line",
+  "powerHeader.template": "file://$WORKSPACE_FOLDER/.vscode/templates/global.lict",
+  "powerHeader.variables": [
+    "!!AUTHOR>=\"Marc Proux\"",
+    "!!EMAIL>=\"marc.proux@outlook.fr\"",
+    "!!DATE>=new Date().toUTCString()",
+    "!!FILEPATH>=\"$RELATIVE_FILEPATH\"",
+    "!!FILENAME>=\"$TM_FILENAME\""
+  ],
+  "powerHeader.update.content": [
+    "@modified\\s+(.+)=!!DATE>"
+  ],
+  "powerHeader.update.enable": "save",
+
+  "[go]": {
+    "powerHeader.commentMode": "raw",
+    "powerHeader.template": "file://$WORKSPACE_FOLDER/.vscode/templates/go.lict"
+  },
+  "[plaintext]": {
+    "powerHeader.autoInsert.enable": false,
+    "powerHeader.update.enable": "disable"
+  }
+}

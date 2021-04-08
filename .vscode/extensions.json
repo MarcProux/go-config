@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    // Really useful for the project =====
+    "editorconfig.editorconfig",
+    "epivision.vscode-file-header",
+    "golang.go",
+  ]
+}
