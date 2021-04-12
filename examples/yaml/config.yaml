@@ -1,0 +1,4 @@
+field: examples_yaml
+
+block:
+  field: {{ "examples_yaml" | upper }}

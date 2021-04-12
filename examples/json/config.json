@@ -1,0 +1,6 @@
+{
+  "field": "examples_json",
+  "block": {
+    "field": "{{ "examples_json" | upper }}"
+  }
+}
