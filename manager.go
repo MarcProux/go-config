@@ -2,7 +2,7 @@
 // @file     manager.go
 // @author   Marc Proux <marc.proux@outlook.fr>
 // @date     Mon, 12 Apr 2021 14:11:17 GMT
-// @modified Mon, 12 Apr 2021 22:07:40 GMT
+// @modified Tue, 13 Apr 2021 07:28:11 GMT
 
 package config
 
@@ -73,8 +73,8 @@ func (m *Manager) Get(name string) (item *Item, err error) {
 	return m.configs[name], nil
 }
 
-func (m *Manager) Instance() *Manager {
-	return m
+func Instance() *Manager {
+	return manager
 }
 
 // ===== INTERNAL =================================================================================
