@@ -2,7 +2,7 @@
 // @file     item.go
 // @author   Marc Proux <marc.proux@outlook.fr>
 // @date     Mon, 12 Apr 2021 14:11:36 GMT
-// @modified Mon, 12 Apr 2021 22:07:54 GMT
+// @modified Tue, 13 Apr 2021 09:16:52 GMT
 
 package config
 
@@ -27,13 +27,22 @@ type Item struct {
 
 // ===== EXTERNAL =================================================================================
 
-func (i *Item) Key(path string, delimiter ...string) (value interface{}, err error) {
+func (i *Item) Key(path string, delimiter ...byte) (value interface{}, err error) {
 	if len(delimiter) == 0 {
-		delimiter = make([]string, 1)
-		delimiter[0] = "::"
+		delimiter = make([]byte, 1)
+		delimiter[0] = ':'
 	}
-	value, err = lookup.Lookup(i.Object, strings.Split(path, delimiter[0])...)
-	return value, err
+	lValue, err := lookup.Lookup(i.Object, strings.Split(path, string(delimiter[0]))...)
+	return lValue.Interface(), err
+}
+
+func (i *Item) KeyI(path string, delimiter ...byte) (interface{}, error) {
+	if len(delimiter) == 0 {
+		delimiter = make([]byte, 1)
+		delimiter[0] = ':'
+	}
+	lValue, err := lookup.LookupI(i.Object, strings.Split(path, string(delimiter[0]))...)
+	return lValue.Interface(), err
 }
 
 // ===== INTERNAL =================================================================================
