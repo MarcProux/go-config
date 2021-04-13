@@ -2,7 +2,7 @@
 // @file     item.go
 // @author   Marc Proux <marc.proux@outlook.fr>
 // @date     Mon, 12 Apr 2021 14:11:36 GMT
-// @modified Tue, 13 Apr 2021 09:16:52 GMT
+// @modified Tue, 13 Apr 2021 16:29:03 GMT
 
 package config
 
@@ -28,6 +28,10 @@ type Item struct {
 // ===== EXTERNAL =================================================================================
 
 func (i *Item) Key(path string, delimiter ...byte) (value interface{}, err error) {
+	if path == "" {
+		return i.Object, nil
+	}
+
 	if len(delimiter) == 0 {
 		delimiter = make([]byte, 1)
 		delimiter[0] = ':'
@@ -37,6 +41,10 @@ func (i *Item) Key(path string, delimiter ...byte) (value interface{}, err error
 }
 
 func (i *Item) KeyI(path string, delimiter ...byte) (interface{}, error) {
+	if path == "" {
+		return i.Object, nil
+	}
+
 	if len(delimiter) == 0 {
 		delimiter = make([]byte, 1)
 		delimiter[0] = ':'
