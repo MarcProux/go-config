@@ -2,7 +2,7 @@
 // @file     funcs.go
 // @author   Marc Proux <marc.proux@outlook.fr>
 // @date     Thu, 15 Apr 2021 08:09:42 GMT
-// @modified Thu, 15 Apr 2021 08:14:48 GMT
+// @modified Thu, 15 Apr 2021 08:23:26 GMT
 
 package config
 
@@ -21,7 +21,7 @@ import (
 
 func funcMap() template.FuncMap {
 	r := template.FuncMap{
-		"cFileContents": fileContents,
+		"cFileContents": fileContents(),
 	}
 
 	// Add Sprig functions
