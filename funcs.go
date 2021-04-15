@@ -2,7 +2,7 @@
 // @file     funcs.go
 // @author   Marc Proux <marc.proux@outlook.fr>
 // @date     Thu, 15 Apr 2021 08:09:42 GMT
-// @modified Thu, 15 Apr 2021 08:23:26 GMT
+// @modified Thu, 15 Apr 2021 10:31:52 GMT
 
 package config
 
@@ -20,12 +20,16 @@ import (
 // ===== INTERNAL =================================================================================
 
 func funcMap() template.FuncMap {
-	r := template.FuncMap{
-		"cFileContents": fileContents(),
+	r := sprig.TxtFuncMap()
+
+	l := template.FuncMap{
+		"fileContents": fileContents(),
 	}
 
-	// Add Sprig functions
-	for k, v := range sprig.FuncMap() {
+	for k, v := range l {
+		if _, ok := r[k]; ok {
+			k = "c_" + k
+		}
 		r[k] = v
 	}
 
