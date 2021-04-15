@@ -2,7 +2,7 @@
 // @file     manager.go
 // @author   Marc Proux <marc.proux@outlook.fr>
 // @date     Mon, 12 Apr 2021 14:11:17 GMT
-// @modified Tue, 13 Apr 2021 07:28:11 GMT
+// @modified Thu, 15 Apr 2021 08:15:09 GMT
 
 package config
 
@@ -11,8 +11,6 @@ import (
 	"fmt"
 	"reflect"
 	"text/template"
-
-	"github.com/Masterminds/sprig"
 )
 
 // ===== STRUCTURE ================================================================================
@@ -43,7 +41,7 @@ func (m *Manager) AddConfig(config Config, override bool) (err error) {
 
 	t := Template{}
 	t.Func = make(template.FuncMap)
-	for k, v := range sprig.FuncMap() {
+	for k, v := range funcMap() {
 		t.Func[k] = v
 	}
 	for k, v := range config.TemplateFunc {
