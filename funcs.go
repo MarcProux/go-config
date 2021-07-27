@@ -2,7 +2,7 @@
 // @file     funcs.go
 // @author   Marc Proux <marc.proux@outlook.fr>
 // @date     Thu, 15 Apr 2021 08:09:42 GMT
-// @modified Thu, 15 Apr 2021 10:31:52 GMT
+// @modified Tue, 27 Jul 2021 14:36:36 GMT
 
 package config
 
@@ -10,7 +10,7 @@ import (
 	"os"
 	"text/template"
 
-	"github.com/Masterminds/sprig"
+	"github.com/Masterminds/sprig/v3"
 )
 
 // ===== STRUCTURE ================================================================================
